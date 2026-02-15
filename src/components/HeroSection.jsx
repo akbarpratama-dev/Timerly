@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import heroIllustration from "../assets/Group 2.svg";
+import subtractIcon from "../assets/Subtract.png";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -45,18 +46,9 @@ function GreenStar() {
   );
 }
 
-/* Orange semi-circle decoration — top-right corner */
-function OrangeSemiCircle() {
-  return (
-    <svg className="absolute -top-8 -right-8 w-36 h-36 md:w-48 md:h-48" viewBox="0 0 200 200" fill="none">
-      <path d="M200 0 A100 100 0 0 1 200 200 Z" fill="#FF5C00" stroke="black" strokeWidth="3" />
-    </svg>
-  );
-}
-
 export default function HeroSection({ onStart }) {
   return (
-    <div className="min-h-screen flex items-center justify-center px-12 md:px-20 lg:px-28 py-12 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center px-12 md:px-20 lg:px-28 py-24 md:py-32 lg:py-12 relative overflow-hidden">
       {/* === Dreamy Gradient Blur Background === */}
       <div className="dreamy-bg absolute inset-0 pointer-events-none" />
 
@@ -71,7 +63,7 @@ export default function HeroSection({ onStart }) {
       {/* === Corner Decorations === */}
       <YellowTriangle />
       <GreenStar />
-      <OrangeSemiCircle />
+      <img src={subtractIcon} alt="" className="absolute -top-4 -right-4 w-32 h-auto md:w-48 lg:w-60 pointer-events-none z-0" />
 
       {/* === Main Content === */}
       <motion.div variants={containerVariants} initial="hidden" animate="visible" className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
@@ -105,7 +97,7 @@ export default function HeroSection({ onStart }) {
         </div>
 
         {/* Right – Illustration */}
-        <motion.div variants={itemVariants} className="relative flex items-center justify-center">
+        <motion.div variants={itemVariants} className="hidden lg:flex relative items-center justify-center">
           <img src={heroIllustration} alt="Timerly illustration" className="w-full max-w-[500px] h-auto" />
         </motion.div>
       </motion.div>
