@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Sora:wght@700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-main text-black font-mono;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading uppercase tracking-wide;
+  }
+}
+
+@layer components {
+  /* Utility class for Neo-Brutalism Card */
+  .neo-card {
+    @apply bg-card border-3 border-black shadow-neo p-8;
+  }
+
+  /* Utility class for Neo-Brutalism Button */
+  .neo-btn {
+    @apply bg-primary text-black font-heading font-extrabold border-3 border-black shadow-neo 
+           transition-transform duration-100 ease-in-out
+           hover:-translate-x-[2px] hover:-translate-y-[2px]
+           active:translate-x-[4px] active:translate-y-[4px] active:shadow-none;
+  }
+
+  /* Utility class for Secondary/Outline Button */
+  .neo-btn-outline {
+    @apply bg-card text-black font-heading font-extrabold border-3 border-black shadow-neo 
+           transition-transform duration-100 ease-in-out
+           hover:-translate-x-[2px] hover:-translate-y-[2px]
+           active:translate-x-[4px] active:translate-y-[4px] active:shadow-none;
+  }
+
+  /* Input Field */
+  .neo-input {
+    @apply w-full bg-main border-3 border-black p-3 font-mono text-lg outline-none
+             placeholder:text-gray-500
+             focus:bg-primary transition-colors duration-200;
+  }
+}
+
+/* Background pattern container */
+.dreamy-bg {
+  background-color: #ffedd2;
+}
