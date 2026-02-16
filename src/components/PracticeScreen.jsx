@@ -77,7 +77,7 @@ export default function PracticeScreen({ config, onComplete }) {
   const prefix = timer.isExceeded ? "+" : "";
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-screen bg-main p-6 overflow-hidden">
+    <div className="flex flex-col items-center justify-between min-h-screen p-6 overflow-hidden relative z-10">
       {/* Header: SOAL X DARI Y */}
       <div className="w-full flex justify-end">
         <div className="bg-card border-3 border-black p-3 shadow-neo">
@@ -112,7 +112,7 @@ export default function PracticeScreen({ config, onComplete }) {
                      hover:bg-primary transition-all 
                      active:shadow-none active:translate-x-[6px] active:translate-y-[6px] hover:-translate-y-1 hover:-translate-x-1"
         >
-          SELESAI (DONE)
+          SELESAI
         </button>
       </div>
     </div>

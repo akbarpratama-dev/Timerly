@@ -30,7 +30,7 @@ export default function SummaryScreen({ config, results, onNewSession }) {
   }, [results]);
 
   return (
-    <div className="min-h-screen bg-main p-6 flex items-center justify-center">
+    <div className="min-h-screen p-6 flex items-center justify-center relative z-10">
       <motion.div className="w-full max-w-2xl" variants={containerVariants} initial="hidden" animate="visible">
         <div className="bg-card border-3 border-black shadow-neo p-8 md:p-12 mb-8">
           <motion.h1 className="text-3xl md:text-4xl font-heading font-black uppercase text-center mb-8" variants={itemVariants}>

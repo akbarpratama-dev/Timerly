@@ -49,7 +49,7 @@ export default function App() {
     <div className="min-h-screen bg-main font-sans text-black overflow-hidden relative">
       {/* Background Line Grid Pattern */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.08]"
+        className="absolute inset-0 pointer-events-none opacity-[0.12] z-0"
         style={{
           backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 39px, #000 39px, #000 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, #000 39px, #000 40px)",
         }}
@@ -57,25 +57,25 @@ export default function App() {
 
       <AnimatePresence mode="wait">
         {screen === "hero" && (
-          <motion.div key="hero" {...pageTransition} className="w-full h-full">
+          <motion.div key="hero" {...pageTransition} className="w-full h-full relative z-10">
             <HeroSection onStart={handleStartHero} />
           </motion.div>
         )}
 
         {screen === "config" && (
-          <motion.div key="config" {...pageTransition} className="w-full h-full">
+          <motion.div key="config" {...pageTransition} className="w-full h-full relative z-10">
             <ConfigSection onConfigComplete={handleStartPractice} onBack={handleBackToHero} />
           </motion.div>
         )}
 
         {screen === "practice" && config && (
-          <motion.div key="practice" {...pageTransition} className="w-full h-full">
+          <motion.div key="practice" {...pageTransition} className="w-full h-full relative z-10">
             <PracticeScreen config={config} onComplete={handleComplete} />
           </motion.div>
         )}
 
         {screen === "summary" && (
-          <motion.div key="summary" {...pageTransition} className="w-full h-full">
+          <motion.div key="summary" {...pageTransition} className="w-full h-full relative z-10">
             <SummaryScreen config={config} results={results} onNewSession={handleNewSession} />
           </motion.div>
         )}

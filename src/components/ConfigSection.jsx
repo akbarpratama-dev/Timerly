@@ -57,7 +57,7 @@ export default function ConfigSection({ onConfigComplete, onBack }) {
   );
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-12">
+    <div className="min-h-screen flex items-center justify-center px-6 py-12 relative z-10">
       <motion.div variants={containerVariants} initial="hidden" animate="visible" className="w-full max-w-lg">
         {/* Back Button */}
         <motion.div variants={itemVariants} className="mb-6">
@@ -120,23 +120,6 @@ export default function ConfigSection({ onConfigComplete, onBack }) {
         </NeoCard>
 
         {/* Tips */}
-        <motion.div variants={itemVariants} className="mt-6 bg-card border-3 border-black shadow-neo p-5">
-          <h3 className="font-heading font-extrabold text-sm uppercase tracking-wider mb-3">💡 Tips</h3>
-          <ul className="font-mono text-sm space-y-2">
-            <li className="flex items-start gap-2">
-              <span className="text-accent font-bold">•</span>
-              Mulai dengan durasi yang lebih longgar, lalu perketat.
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary font-bold">•</span>
-              Timer akan berubah <span className="font-bold text-accent">MERAH</span> saat overtime.
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-black font-bold">•</span>
-              Hasil lengkap akan ditampilkan di akhir sesi.
-            </li>
-          </ul>
-        </motion.div>
       </motion.div>
     </div>
   );
