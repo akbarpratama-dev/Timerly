@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroIllustration from "../assets/Group 2.svg";
+import heroIllustration from "../assets/j.png";
 import subtractIcon from "../assets/Subtract.png";
 
 const containerVariants = {
@@ -49,6 +49,16 @@ function GreenStar() {
 export default function HeroSection({ onStart }) {
   return (
     <div className="min-h-screen flex items-center justify-center px-12 md:px-20 lg:px-28 py-24 md:py-32 lg:py-12 relative overflow-hidden">
+      {/* === Dreamy Gradient Blur Background === */}
+      <div className="dreamy-bg absolute inset-0 pointer-events-none" />
+
+      {/* === Line Grid Pattern === */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.08]"
+        style={{
+          backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 39px, #000 39px, #000 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, #000 39px, #000 40px)",
+        }}
+      />
       {/* === Corner Decorations === */}
       <YellowTriangle />
       <GreenStar />
@@ -87,7 +97,7 @@ export default function HeroSection({ onStart }) {
 
         {/* Right – Illustration */}
         <motion.div variants={itemVariants} className="hidden lg:flex relative items-center justify-center">
-          <img src={heroIllustration} alt="Timerly illustration" className="w-full max-w-[500px] h-auto" />
+          <img src={heroIllustration} alt="Timerly illustration" className="w-full max-w-[340px] h-auto" />
         </motion.div>
       </motion.div>
     </div>

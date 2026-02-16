@@ -76,13 +76,17 @@ Build these flexible components first to ensure consistency.
 - [ ] **Hero Section:**
   - Left: Giant "TIMERLY" title (Sora), Subtext, Main CTA.
   - Right: Decorative Neo-Brutalist Illustration placeholder.
+
+Implement this design from Figma.
+@https://www.figma.com/design/W73Yysf5iRoftPsL3lu8oG/Dreamy-Gradient-Blur--Community-?node-id=2309-2&m=dev
+
+#### 4.2 Config Form (Configuration)
 - [ ] **Config Form:**
   - Inputs for `Question Count` and `Duration (min)`.
   - Validation: Prevent empty or zero values.
   - Start Button triggers `practice` mode.
 
-#### 4.2 Practice Mode (The Timer Engine)
-
+#### 4.3 Practice Mode (The Timer Engine)
 - [ ] **Layout:** Minimalist, center focus.
 - [ ] **Timer Logic:**
   - [ ] Countdown functionality.
@@ -93,7 +97,7 @@ Build these flexible components first to ensure consistency.
   - "Done/Next" Button.
   - Progress Indicator ("Soal 1 / 10").
 
-#### 4.3 Summary Screen (Dashboard)
+#### 4.4 Summary Screen (Dashboard)
 
 - [ ] **Stats Cards:**
   - Total Session Duration.

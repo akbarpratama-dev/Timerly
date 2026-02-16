@@ -18,6 +18,9 @@ export default {
       boxShadow: {
         neo: "6px 6px 0px 0px #000000",
       },
+      dropShadow: {
+        neo: "8px 8px 0px #000000",
+      },
       borderWidth: {
         3: "3px",
       },

@@ -57,7 +57,7 @@ export default function ConfigSection({ onConfigComplete, onBack }) {
   );
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-12 relative z-10">
+    <div className="min-h-screen flex items-center justify-center px-6 py-12">
       <motion.div variants={containerVariants} initial="hidden" animate="visible" className="w-full max-w-lg">
         {/* Back Button */}
         <motion.div variants={itemVariants} className="mb-6">
