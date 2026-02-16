@@ -60,6 +60,19 @@ export default function PracticeScreen({ config, onComplete }) {
     }
   }, [currentQuestion, totalQuestions, results, timer, durationSeconds, onComplete]);
 
+  // Handle spacebar for next question
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === " " || e.code === "Space") {
+        e.preventDefault();
+        handleDone();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleDone]);
+
   // Determine text color
   let timerColorClass = "text-black";
   if (timer.isExceeded) {
@@ -77,7 +90,7 @@ export default function PracticeScreen({ config, onComplete }) {
   const prefix = timer.isExceeded ? "+" : "";
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-screen p-6 overflow-hidden relative z-10">
+    <div className="flex flex-col items-center justify-between min-h-screen p-6 relative z-10">
       {/* Header: SOAL X DARI Y */}
       <div className="w-full flex justify-end">
         <div className="bg-card border-3 border-black p-3 shadow-neo">
@@ -114,6 +127,9 @@ export default function PracticeScreen({ config, onComplete }) {
         >
           SELESAI
         </button>
+        <p className="mt-4 text-center font-mono text-sm uppercase tracking-widest text-black/60">
+          TEKAN <span className="font-bold underline text-black">[SPACE]</span> UNTUK LANJUT
+        </p>
       </div>
     </div>
   );
