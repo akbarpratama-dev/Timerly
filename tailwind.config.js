@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        main: "#FFEDD2",
-        card: "#fffefdff",
-        primary: "#FFD84D", // Yellow - Buttons/Highlights
+        main: "#F4F4F0", // Light Beige / Cream
+        card: "#FFFFFF",
+        primary: "#FCD34D", // Yellow - Buttons/Highlights
         accent: "#FF4D4D", // Red - Errors/Stop/Alerts
         black: "#000000",
       },

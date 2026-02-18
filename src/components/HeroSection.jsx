@@ -1,105 +1,103 @@
 import { motion } from "framer-motion";
-import heroIllustration from "../assets/j.png";
-import subtractIcon from "../assets/Subtract.png";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.3 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
-  },
-};
-
-/* Sparkle / starburst SVG — purple accent icon near the title */
-function SparkleIcon({ className = "" }) {
-  return (
-    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <path d="M28 0 L32 20 L44 4 L34 22 L56 20 L36 28 L56 36 L34 34 L44 52 L32 36 L28 56 L24 36 L12 52 L22 34 L0 36 L20 28 L0 20 L22 22 L12 4 L24 20 Z" fill="#9747FF" />
-    </svg>
-  );
-}
-
-/* Yellow triangle decoration — top-left corner */
-function YellowTriangle() {
-  return (
-    <svg className="absolute -top-4 -left-4 w-32 h-32 md:w-44 md:h-44" viewBox="0 0 180 180" fill="none">
-      <polygon points="0,0 180,0 0,180" fill="#FFD600" stroke="black" strokeWidth="3" />
-    </svg>
-  );
-}
-
-/* Green star decoration — bottom-left corner */
-function GreenStar() {
-  return (
-    <svg className="absolute -bottom-6 -left-6 w-28 h-28 md:w-36 md:h-36" viewBox="0 0 120 120" fill="none">
-      <path d="M60 0 L72 42 L120 42 L82 68 L94 108 L60 84 L26 108 L38 68 L0 42 L48 42 Z" fill="#88F9A5" stroke="black" strokeWidth="3" />
-    </svg>
-  );
-}
+import { Settings, Clock, BarChart2 } from "lucide-react";
+import heroImage from "../assets/Group 13.png";
 
 export default function HeroSection({ onStart }) {
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center px-12 md:px-20 lg:px-28 py-24 md:py-32 lg:py-12 relative overflow-hidden">
-      {/* === Dreamy Gradient Blur Background === */}
-      <div className="dreamy-bg absolute inset-0 pointer-events-none" />
-
-      {/* === Line Grid Pattern === */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.08]"
-        style={{
-          backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 39px, #000 39px, #000 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, #000 39px, #000 40px)",
-        }}
-      />
-      {/* === Corner Decorations === */}
-      <YellowTriangle />
-      <GreenStar />
-      <img src={subtractIcon} alt="" className="absolute -top-4 -right-4 w-32 h-auto md:w-48 lg:w-60 pointer-events-none z-0" />
-
-      {/* === Main Content === */}
-      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
-        {/* Left – Text Content */}
-        <div className="flex flex-col gap-6">
-          {/* Title with sparkle */}
-          <motion.div variants={itemVariants} className="relative">
-            <h1 className="text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-heading font-black uppercase leading-[0.95] tracking-tight">TIMERLY</h1>
-          </motion.div>
-
-          {/* Description */}
-          <motion.p variants={itemVariants} className="font-mono text-base md:text-lg max-w-lg leading-relaxed">
-            Latih kecepatan mengerjakan soal dengan durasi terukur.
-            <br />
-            Lihat pola waktumu dan tingkatkan fokus setiap sesi latihan.
-          </motion.p>
-
-          {/* CTA Button */}
-          <motion.div variants={itemVariants}>
-            <button
-              onClick={onStart}
-              className="inline-block bg-[#4D4DFF] text-white font-mono font-bold text-lg md:text-xl
-                         px-10 py-5 border-3 border-black shadow-neo uppercase
-                         transition-all duration-100 ease-in-out
-                         hover:-translate-x-[2px] hover:-translate-y-[2px]
-                         active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-            >
-              Mulai Latihan &gt;&gt;
-            </button>
-          </motion.div>
+    <div className="flex flex-col min-h-screen bg-main text-black font-mono overflow-auto selection:bg-primary selection:text-black">
+      {/* Header */}
+      <header className="w-full px-6 md:px-12 py-6 border-b-3 border-black flex flex-row justify-between items-center bg-main sticky top-0 z-40">
+        <div className="flex items-center gap-2">
+          <h1 className="text-2xl md:text-3xl font-heading font-black uppercase tracking-tight">TIMERLY</h1>
         </div>
+      </header>
 
-        {/* Right – Illustration */}
-        <motion.div variants={itemVariants} className="hidden lg:flex relative items-center justify-center">
-          <img src={heroIllustration} alt="Timerly illustration" className="w-full max-w-[340px] h-auto" />
+      <main className="flex-1 flex flex-col items-center w-full max-w-7xl mx-auto px-6 md:px-12 py-12 lg:py-20 gap-16 md:gap-24">
+        {/* Hero Section */}
+        <motion.div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center" initial="hidden" animate="visible" variants={staggerContainer}>
+          {/* Left Content */}
+          <div className="flex flex-col gap-8 order-2 lg:order-1">
+            <div className="flex flex-col gap-4">
+              <motion.h1 variants={fadeIn} className="text-6xl md:text-7xl lg:text-[6.5rem] font-heading font-black uppercase leading-[0.9] tracking-tighter break-words">
+                TIMERLY
+              </motion.h1>
+              <motion.p variants={fadeIn} className="text-lg md:text-xl font-medium leading-relaxed max-w-lg border-l-4 border-black pl-5 py-2">
+                Latih kecepatanmu dengan durasi yang terukur. Pantau polanya dan tingkatkan fokus di setiap sesi.
+              </motion.p>
+            </div>
+
+            <motion.div variants={fadeIn} className="pt-2">
+              <button
+                onClick={onStart}
+                className="group relative inline-flex items-center justify-center px-10 py-5 bg-primary text-black text-xl font-heading font-bold border-3 border-black shadow-neo hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:translate-y-0 active:translate-x-0 active:shadow-neo transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-black/20"
+              >
+                MULAI LATIHAN
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Right Illustration Card */}
+          <motion.div
+            variants={fadeIn}
+            className="hidden lg:flex order-1 lg:order-2 w-full aspect-[4/3] bg-white border-3 border-black shadow-neo p-8 items-center justify-center relative overflow-hidden group hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-300"
+          >
+            {/* Hero Image */}
+            <div className="relative w-full h-full flex items-center justify-center pointer-events-none select-none">
+              <img src={heroImage} alt="Timerly Hero Illustration" className="w-full h-full object-contain" />
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+
+        {/* How-To Section */}
+        <motion.div className="w-full flex flex-col gap-10 pt-4" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer}>
+          <motion.h2 variants={fadeIn} className="text-3xl md:text-4xl font-heading font-black uppercase">
+            CARA MENGGUNAKAN
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <StepCard icon={<Settings size={32} strokeWidth={2.5} />} title="ATUR SESI" desc="Tentukan jumlah soal dan durasi." variants={fadeIn} />
+            <StepCard icon={<Clock size={32} strokeWidth={2.5} />} title="KERJAKAN DENGAN TIMER" desc="Fokus penuh selama waktu berjalan." variants={fadeIn} />
+            <StepCard icon={<BarChart2 size={32} strokeWidth={2.5} />} title="EVALUASI HASIL" desc="Analisis performa dan tingkatkan." variants={fadeIn} />
+          </div>
+        </motion.div>
+      </main>
+
+      {/* Footer */}
+      <footer className="w-full border-t-3 border-black py-8 bg-main mt-auto">
+        <div className="max-w-7xl mx-auto px-6 flex justify-center text-center">
+          <p className="text-sm md:text-base font-bold uppercase tracking-wide opacity-80">&copy; 2026 Timerly | Built for focus training.</p>
+        </div>
+      </footer>
     </div>
+  );
+}
+
+function StepCard({ icon, title, desc, variants }) {
+  return (
+    <motion.div
+      variants={variants}
+      className="bg-white border-3 border-black shadow-neo p-6 md:p-8 flex flex-row md:flex-col gap-6 items-center md:items-start hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 h-full"
+    >
+      <div className="shrink-0 w-14 h-14 flex items-center justify-center border-3 border-black bg-transparent rounded-none">{icon}</div>
+      <div className="flex flex-col gap-2 text-left">
+        <h3 className="font-heading font-black text-lg md:text-xl uppercase leading-tight">{title}</h3>
+        <p className="text-sm md:text-base font-medium leading-normal opacity-90">{desc}</p>
+      </div>
+    </motion.div>
   );
 }
