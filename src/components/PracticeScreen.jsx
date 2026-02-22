@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTimer, formatTime } from "../utils/timer";
+import { X } from "lucide-react";
 
 const questionVariants = {
   enter: { x: 1000, opacity: 0 },
@@ -13,7 +14,7 @@ const questionTransition = {
   ease: [0.25, 1, 0.5, 1], // Cubic bezier for "hard" but smooth movement
 };
 
-export default function PracticeScreen({ config, onComplete }) {
+export default function PracticeScreen({ config, onComplete, onCancel }) {
   const { totalQuestions, minutesPerQuestion } = config;
   // Convert minutes to seconds
   const durationSeconds = minutesPerQuestion * 60;
@@ -77,8 +78,12 @@ export default function PracticeScreen({ config, onComplete }) {
 
   return (
     <div className="flex flex-col items-center justify-between min-h-screen bg-main p-6 overflow-hidden">
-      {/* Header: SOAL X DARI Y */}
-      <div className="w-full flex justify-end">
+      {/* Header: Exit Button and SOAL X DARI Y */}
+      <div className="w-full flex justify-between items-start">
+        <button onClick={onCancel} className="bg-card border-3 border-black p-3 shadow-neo hover:bg-accent hover:text-white transition-all active:shadow-none active:translate-x-[4px] active:translate-y-[4px] group" title="Batalkan Sesi">
+          <X className="w-6 h-6 group-hover:scale-110 transition-transform" />
+        </button>
+
         <div className="bg-card border-3 border-black p-3 shadow-neo">
           <span className="font-mono font-bold text-xl uppercase">
             SOAL {currentQuestion} / {totalQuestions}

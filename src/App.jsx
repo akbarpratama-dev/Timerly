@@ -70,7 +70,7 @@ export default function App() {
 
         {screen === "practice" && config && (
           <motion.div key="practice" {...pageTransition} className="w-full h-full">
-            <PracticeScreen config={config} onComplete={handleComplete} />
+            <PracticeScreen config={config} onComplete={handleComplete} onCancel={handleNewSession} />
           </motion.div>
         )}
 
