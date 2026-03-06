@@ -62,10 +62,39 @@ export function useTimer(durationSeconds) {
     elapsedBeforePauseRef.current = 0;
   }, [durationSeconds, clearTimer]);
 
+  const pause = useCallback(() => {
+    if (isRunning) {
+      setIsRunning(false);
+      if (startTimeRef.current) {
+        const now = Date.now();
+        const elapsedSinceStart = (now - startTimeRef.current) / 1000;
+        elapsedBeforePauseRef.current += elapsedSinceStart;
+
+        // Finalize states for any listeners
+        const totalElapsed = elapsedBeforePauseRef.current;
+        const remaining = durationSeconds - totalElapsed;
+
+        if (remaining <= 0) {
+          setTimeRemaining(0);
+          setIsExceeded(true);
+          setExtraTime(Math.abs(remaining));
+        } else {
+          setTimeRemaining(remaining);
+          setIsExceeded(false);
+          setExtraTime(0);
+        }
+      }
+      clearTimer();
+    }
+  }, [isRunning, clearTimer, durationSeconds]);
+
   const getTotalTimeSpent = useCallback(() => {
-    if (!startTimeRef.current) return 0;
-    return elapsedBeforePauseRef.current + (Date.now() - startTimeRef.current) / 1000;
-  }, []);
+    let total = elapsedBeforePauseRef.current;
+    if (isRunning && startTimeRef.current) {
+      total += (Date.now() - startTimeRef.current) / 1000;
+    }
+    return total;
+  }, [isRunning]);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -79,6 +108,7 @@ export function useTimer(durationSeconds) {
     isRunning,
     displayTime: isExceeded ? extraTime : Math.max(0, timeRemaining),
     start,
+    pause,
     reset,
     getTotalTimeSpent,
   };
