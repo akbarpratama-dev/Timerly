@@ -147,7 +147,7 @@ export default function PracticeScreen({ config, onComplete, onCancel }) {
               className="w-full max-w-sm bg-card border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] text-center"
             >
               <h2 className="text-3xl font-heading font-black mb-4 uppercase">Yakin Keluar?</h2>
-              <p className="text-xl font-medium mb-8">Waktu pengerjaan akan terhenti. Kemajuan latihan ini akan hilang.</p>
+              <p className="text-xl font-medium mb-8">Waktu pengerjaan akan terhenti.</p>
 
               <div className="flex flex-col gap-4">
                 <button onClick={onCancel} className="w-full py-4 bg-accent text-white border-3 border-black font-heading font-bold uppercase shadow-neo hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all">
