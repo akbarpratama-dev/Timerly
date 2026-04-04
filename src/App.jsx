@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 import HeroSection from "./components/HeroSection";
 import ConfigSection from "./components/ConfigSection";
 import PracticeScreen from "./components/PracticeScreen";
@@ -80,6 +81,7 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      <Analytics />
     </div>
   );
 }
